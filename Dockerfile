@@ -3,4 +3,4 @@ VOLUME /tmp
 EXPOSE 8080
 ADD target/*.jar app.jar
 ENV JAVA_OPTS=""
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=docker"]
