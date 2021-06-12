@@ -12,5 +12,4 @@ public interface UserService {
     Mono<UserResponse> execute(UserRequest request);
     Flux<User> execute();
     Mono<DataBaseSequence> findNextSequence(String sequenceName);
-
 }

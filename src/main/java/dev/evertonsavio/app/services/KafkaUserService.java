@@ -7,5 +7,4 @@ import reactor.core.publisher.Mono;
 public interface KafkaUserService {
 
     Mono<UserResponse> execute(UsersRequest request);
-
 }
