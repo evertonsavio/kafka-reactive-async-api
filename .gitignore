@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 ###MongoDB
-!**/MongoDB/
+infra/MongoDB/
 
 ### STS ###
 .apt_generated
