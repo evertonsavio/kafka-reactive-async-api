@@ -26,7 +26,8 @@ public class User {
 	
 	@Id
 	private int id;
-	
+
+	private String userPublicId;
 	private String name;
 	private String email;
 	private int age;

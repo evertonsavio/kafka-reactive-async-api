@@ -3,10 +3,13 @@ package dev.evertonsavio.app.handlers;
 import dev.evertonsavio.app.models.request.UserRequest;
 import dev.evertonsavio.app.models.response.UserResponse;
 import dev.evertonsavio.app.services.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
+
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Component
 public class UserHandler {
@@ -23,7 +26,9 @@ public class UserHandler {
         Mono<UserResponse> registerUserResponse$ = registerUserRequest$
                 .flatMap(userRequest -> userService.execute(userRequest));
 
-        return null;
+        return ok().contentType(MediaType.APPLICATION_JSON)
+                .body(registerUserResponse$, UserResponse.class);
+
     }
 
 }

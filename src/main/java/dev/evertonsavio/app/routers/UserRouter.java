@@ -19,7 +19,7 @@ public class UserRouter {
     ==================================================================================================================*/
 
     @Bean
-    public RouterFunction<ServerResponse> userrRoutes(UserHandler userHandler){
+    public RouterFunction<ServerResponse> userRoutes(UserHandler userHandler){
         return RouterFunctions.route(
                 POST("/user-service/user")
                     .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),

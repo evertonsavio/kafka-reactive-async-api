@@ -6,9 +6,9 @@ import dev.evertonsavio.app.models.request.UserRequest;
 
 public class UserConverter {
 	
-	public static User convertFromRequest(UserRequest request, int id) {
+	public static User convertFromRequest(UserRequest request, String id) {
 		User user = new User();
-		user.setId(id);
+		user.setUserPublicId(id);
 		user.setName(request.getName());
 		user.setEmail(request.getEmail());
 		user.setAge(request.getAge());
