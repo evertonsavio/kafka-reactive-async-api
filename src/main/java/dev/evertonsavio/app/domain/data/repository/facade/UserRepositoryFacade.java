@@ -1,13 +1,15 @@
 package dev.evertonsavio.app.domain.data.repository.facade;
 
-import java.util.List;
-
 import dev.evertonsavio.app.domain.data.User;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-public interface UserRepositoryFacade {
+@Repository
+public interface UserRepositoryFacade extends ReactiveMongoRepository<User, String> {
 
-	public User save(User user);
-	
-	public List<User> findAll();
+	Mono<User> save(User user);
+	Flux<User> findAll();
 	
 }
