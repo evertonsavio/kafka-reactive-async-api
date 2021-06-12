@@ -16,9 +16,8 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 public class UserRouter {
 
     /*==================================================================================================================
-    ROUTES: /user-service/... -> Register a new user
+    ROUTES: /user-service/... -> User Business Routes
     ==================================================================================================================*/
-
     @Bean
     public RouterFunction<ServerResponse> userRoutes(UserHandler userHandler){
         return RouterFunctions.route(
