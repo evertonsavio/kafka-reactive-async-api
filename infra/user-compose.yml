@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  user-servive:
+    image: havyx/user-service:latest
+    hostname: user-servive
+    container_name: user-service
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}

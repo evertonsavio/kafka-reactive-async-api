@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 
 services:
   mongo-express:
@@ -14,7 +14,7 @@ services:
     links:
       - mongo
     networks:
-      - mongo-compose-network
+      - ${GLOBAL_NETWORK:-kafka}
 
   mongo:
     image: mongo
@@ -26,8 +26,8 @@ services:
     volumes:
       - ./MongoDB:/data/db
     networks:
-      - mongo-compose-network
-
-networks:
-  mongo-compose-network:
-    driver: bridge
+      - ${GLOBAL_NETWORK:-kafka}
+#
+#networks:
+#  mongo-compose-network:
+#    driver: bridge
