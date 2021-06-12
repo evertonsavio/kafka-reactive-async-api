@@ -4,6 +4,6 @@ import dev.evertonsavio.app.config.amqp.UserAmqpMessage;
 
 public interface UserListener {
 	
-	void consumeMessage(UserAmqpMessage message);
+	void consumeMessage(String message);
 
 }

@@ -12,10 +12,10 @@ public class KafkaConsumer implements UserListener {
 
     @Override
     @KafkaListener(id = "kafkaTopicListener", topics = TOPIC_REGISTER)
-    public void consumeMessage(UserAmqpMessage message) {
+    public void consumeMessage(String message) {
 
         System.out.println("MESSAGE RECEIVED");
-        System.out.println(message.getRegisters());
+        System.out.println(message);
 
     }
 }

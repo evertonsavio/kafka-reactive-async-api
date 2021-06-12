@@ -29,7 +29,7 @@ public class KafkaUserServiceImpl implements KafkaUserService {
         List<UserRequest> users = request.getUsers();
         System.out.println("QTD de users: " + users.size());
 
-        kafkaProducer.send(TOPIC_REGISTER, UUID.randomUUID().toString() , new UserAmqpMessage(request.getUsers()));
+        kafkaProducer.send(TOPIC_REGISTER, UUID.randomUUID().toString() , new UserAmqpMessage(request.getUsers()).toString());
 
         return Mono.empty();
     }
