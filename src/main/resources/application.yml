@@ -9,3 +9,20 @@ spring:
       authentication-database: admin
   kafka:
     bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
+
+---
+spring:
+  profiles: docker
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+      database: userDB
+      username: root
+      password: MongoDB2021!
+      authentication-database: admin
+  kafka:
+    bootstrap-servers: kafka-broker-1:19092, kafka-broker-2:29092, kafka-broker-3:39092
+    schema-registry-url: http://schema-registry:8081
+    num-of-partitions: 3
+    replication-factor: 3
