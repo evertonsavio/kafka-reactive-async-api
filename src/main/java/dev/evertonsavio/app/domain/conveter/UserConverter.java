@@ -8,7 +8,7 @@ public class UserConverter {
 	
 	public static User convertFromRequest(UserRequest request, String id) {
 		User user = new User();
-		user.setUserPublicId(id);
+		user.setId(id);
 		user.setName(request.getName());
 		user.setEmail(request.getEmail());
 		user.setAge(request.getAge());

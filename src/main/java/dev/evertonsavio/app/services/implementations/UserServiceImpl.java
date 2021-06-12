@@ -8,6 +8,7 @@ import dev.evertonsavio.app.models.request.UserRequest;
 import dev.evertonsavio.app.models.response.UserResponse;
 import dev.evertonsavio.app.services.UserService;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.UUID;
@@ -28,6 +29,12 @@ public class UserServiceImpl implements UserService {
         Mono<User> user$ = userRepositoryFacade.save(user);
 
         return user$.flatMap(userSaved -> Mono.just(new UserResponse(userSaved)));
+    }
+
+    @Override
+    public Flux<User> execute() {
+
+        return userRepositoryFacade.findAll();
     }
 
     @Override

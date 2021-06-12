@@ -9,6 +9,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 
 @Configuration
@@ -23,7 +24,10 @@ public class UserRouter {
         return RouterFunctions.route(
                 POST("/user-service/user")
                     .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
-                userHandler::registerUser);
+                userHandler::registerUser).andRoute(
+                GET("/user-service/user")
+                    .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
+                userHandler::listUsers);
     }
 
 }

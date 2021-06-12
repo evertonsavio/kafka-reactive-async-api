@@ -25,9 +25,8 @@ public class User {
 	public static final String SEQUENCE_NAME = "user_seq";
 	
 	@Id
-	private int id;
+	private String id;
 
-	private String userPublicId;
 	private String name;
 	private String email;
 	private int age;
