@@ -4,5 +4,8 @@ spring:
       host: localhost
       port: 27017
       database: userDB
+      username: savio
+      password: MongoDB2021!
+      authentication-database: admin
   kafka:
-    url: localhost:9092
+    bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
