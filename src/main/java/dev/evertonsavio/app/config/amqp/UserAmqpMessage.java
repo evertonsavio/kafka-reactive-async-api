@@ -14,4 +14,8 @@ public class UserAmqpMessage {
 	
 	private List<UserRequest> registers;
 
+	@Override
+	public String toString() {
+		return "{\"" + "registers\":" + registers + '}';
+	}
 }

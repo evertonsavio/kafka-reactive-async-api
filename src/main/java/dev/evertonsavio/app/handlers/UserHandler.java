@@ -20,6 +20,8 @@ public class UserHandler {
 
     public UserHandler(UserService userService) { this.userService = userService; }
 
+    /*==================================================================================================================
+    ==================================================================================================================*/
     public Mono<ServerResponse> registerUser(ServerRequest request){
 
         Mono<UserRequest> registerUserRequest$ = request.bodyToMono(UserRequest.class);
@@ -30,13 +32,13 @@ public class UserHandler {
                 .body(registerUserResponse$, UserResponse.class);
     }
 
+    /*==================================================================================================================
+    ==================================================================================================================*/
     public Mono<ServerResponse> listUsers(ServerRequest request){
 
         Flux<User> listUsersResponse$ = userService.execute();
-
         return ok().contentType(MediaType.APPLICATION_JSON)
                 .body(listUsersResponse$, User.class);
 
     }
-
-}
+}/*===================================================================================================================*/

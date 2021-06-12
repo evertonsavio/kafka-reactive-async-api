@@ -20,6 +20,8 @@ public class KafkaUserHandler {
         this.kafkaUserService = kafkaUserService;
     }
 
+    /*==================================================================================================================
+    ==================================================================================================================*/
     public Mono<ServerResponse> registerUsers(ServerRequest request){
 
         Mono<UsersRequest> registerUsersRequest$ = request.bodyToMono(UsersRequest.class);
@@ -29,4 +31,4 @@ public class KafkaUserHandler {
         return ok().contentType(MediaType.APPLICATION_JSON)
                 .body(registerUsersResponse$, UserResponse.class);
     }
-}
+}/*===================================================================================================================*/

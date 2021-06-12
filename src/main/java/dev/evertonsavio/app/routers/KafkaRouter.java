@@ -9,6 +9,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import static dev.evertonsavio.app.config.constants.URLMapping.POST_SAVE_REGISTERS;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 
 @Configuration
@@ -20,9 +21,8 @@ public class KafkaRouter {
     @Bean
     public RouterFunction<ServerResponse> kafkaRoutes(KafkaUserHandler kafkaUserHandler){
         return RouterFunctions.route(
-                POST("/user-service/kafka/users")
+                POST(POST_SAVE_REGISTERS)
                         .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
                 kafkaUserHandler::registerUsers);
     }
-
-}
+}/*===================================================================================================================*/

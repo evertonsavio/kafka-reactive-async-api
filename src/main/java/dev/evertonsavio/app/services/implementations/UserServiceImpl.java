@@ -22,6 +22,8 @@ public class UserServiceImpl implements UserService {
         this.userRepositoryFacade = userRepositoryFacade;
     }
 
+    /*==================================================================================================================
+    ==================================================================================================================*/
     @Override
     public Mono<UserResponse> execute(UserRequest request) {
 
@@ -31,14 +33,18 @@ public class UserServiceImpl implements UserService {
         return user$.flatMap(userSaved -> Mono.just(new UserResponse(userSaved)));
     }
 
+    /*==================================================================================================================
+    ==================================================================================================================*/
     @Override
     public Flux<User> execute() {
 
         return userRepositoryFacade.findAll();
     }
 
+    /*==================================================================================================================
+    ==================================================================================================================*/
     @Override
     public Mono<DataBaseSequence> findNextSequence(String sequenceName) {
         return null;
     }
-}
+}/*===================================================================================================================*/

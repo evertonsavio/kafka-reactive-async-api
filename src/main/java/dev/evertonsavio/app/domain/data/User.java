@@ -32,4 +32,13 @@ public class User {
 	private int age;
 	private Address address;
 
+	@Override
+	public String toString() {
+		return "{\"" + "age\":" + age +
+				", \"id\":\"" + id + '\"' +
+				", \"name\":\"" + name + '\"' +
+				", \"email\":\"" + email + '\"' +
+				", \"address\":" + address + '}';
+	}
+
 }

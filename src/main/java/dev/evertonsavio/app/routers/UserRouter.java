@@ -9,6 +9,8 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import static dev.evertonsavio.app.config.constants.URLMapping.GET_LIST_REGISTER;
+import static dev.evertonsavio.app.config.constants.URLMapping.POST_SAVE_REGISTER;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 
@@ -21,12 +23,11 @@ public class UserRouter {
     @Bean
     public RouterFunction<ServerResponse> userRoutes(UserHandler userHandler){
         return RouterFunctions.route(
-                POST("/user-service/user")
+                POST(POST_SAVE_REGISTER)
                     .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
                 userHandler::registerUser).andRoute(
-                GET("/user-service/user")
+                GET(GET_LIST_REGISTER)
                     .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
                 userHandler::listUsers);
     }
-
-}
+}/*===================================================================================================================*/
